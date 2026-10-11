@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RESTRICTED WATERS</title>
+  <link rel="stylesheet" href="reset.css" />
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://unpkg.com/tone@14.8.49/build/Tone.js"></script>
+  <script src="script.js" defer></script>
+  <link rel="icon" type="image/png" href="./assets/favicon.png">
+</head>
+<body>
+  <main class="app">
+    <header class="top-bar">
+      <h1>RESTRICTED WATERS</h1>
+      <span id="systemStatus" class="visually-hidden" aria-live="polite">STANDBY</span>
+    </header>
+
+    <section class="workstation">
+      <section class="panel" aria-labelledby="echoTitle">
+        <div class="channel-heading"><div><span class="channel-number">CH 01</span><h2 id="echoTitle">ECHO TRANSMISSION</h2></div></div>
+        <label class="toggle-line"><span>AUTO PLAY</span><input type="checkbox" id="echoAuto" checked><span class="toggle-label">ON</span></label>
+        <div class="control"><label for="transpose">PITCH <output id="transposeValue">+0 st</output></label><input id="transpose" type="range" min="-12" max="12" value="0" step="1"></div>
+        <div class="control"><label for="pulseRate">SPEED <output id="pulseRateValue">1×</output></label><input id="pulseRate" type="range" min="0.5" max="2" value="1" step="0.5"></div>
+        <div class="control"><label for="echoAmount">ECHO <output id="echoAmountValue">35%</output></label><input id="echoAmount" type="range" min="0" max="80" value="35"></div>
+        <div class="control"><label for="echoPan">LEFT / RIGHT <output id="echoPanValue">L 40</output></label><input id="echoPan" type="range" min="-100" max="100" value="-40"></div>
+        <div class="control"><label for="echoLevel">LEVEL <output id="echoLevelValue">65%</output></label><input id="echoLevel" type="range" min="0" max="100" value="65"></div>
+      </section>
+
+      <section class="field panel" id="signalField" aria-label="Play echo notes by clicking or dragging in this area">
+        <div class="field-top"><div>SOUND FIELD <small>CLICK OR DRAG TO PLAY</small></div><span>PLAY ECHO NOTES</span></div>
+        <div class="sonar-rings" aria-hidden="true"><div class="ring ring-a"></div><div class="ring ring-b"></div><div class="ring ring-c"></div><div class="cross-h"></div><div class="cross-v"></div><div class="center-dot"></div></div>
+        <div id="signalEffects" class="signal-effects" aria-hidden="true"></div>
+        <div class="field-bottom"><span>LEFT / RIGHT: PITCH →<br>UP / DOWN: TONE ↑</span><span>CLICK TO PLAY A SOUND</span></div>
+      </section>
+
+      <section class="panel" aria-labelledby="depthTitle">
+        <div class="channel-heading"><div><span class="channel-number">CH 02</span><h2 id="depthTitle">DEEP FREQUENCY</h2></div></div>
+        <label class="toggle-line"><span>AUTO PLAY</span><input type="checkbox" id="depthAuto" checked><span class="toggle-label">ON</span></label>
+        <div class="control"><label for="rootNote">BASE NOTE <output id="rootNoteValue">C2</output></label><select id="rootNote"><option>C2</option><option>D2</option><option>F2</option><option>G2</option></select></div>
+        <div class="control"><label for="filterCutoff">TONE FILTER <output id="filterCutoffValue">35%</output></label><input id="filterCutoff" type="range" min="0" max="100" value="35"></div>
+        <div class="control"><label for="resonance">TONE SHARPNESS <output id="resonanceValue">25%</output></label><input id="resonance" type="range" min="0" max="100" value="25"></div>
+        <div class="control"><label for="reverbAmount">SPACE / REVERB <output id="reverbAmountValue">55%</output></label><input id="reverbAmount" type="range" min="0" max="80" value="55"></div>
+        <div class="control"><label for="depthPan">LEFT / RIGHT <output id="depthPanValue">R 40</output></label><input id="depthPan" type="range" min="-100" max="100" value="40"></div>
+        <div class="control"><label for="depthLevel">LEVEL <output id="depthLevelValue">55%</output></label><input id="depthLevel" type="range" min="0" max="100" value="55"></div>
+        <button class="small-button" id="depthTrigger" disabled>● PLAY DEEP NOTE</button>
+      </section>
+    </section>
+
+    <footer class="transport panel">
+      <button id="startButton" class="start-button"><span class="play-icon" aria-hidden="true">▶</span><span><strong>START</strong></span></button>
+      <button id="stopButton" class="stop-button" disabled><span class="stop-icon" aria-hidden="true">■</span><span><strong>STOP</strong></span></button>
+      <div class="control transport-control"><label for="bpm">BPM <output id="bpmValue">76</output></label><input id="bpm" type="range" min="40" max="120" value="76"></div>
+      <div class="control transport-control"><label for="masterLevel">MASTER VOLUME <output id="masterLevelValue">75%</output></label><input id="masterLevel" type="range" min="0" max="100" value="75"></div>
+      <div class="output-label">SOUND<br><strong>STEREO</strong></div>
+    </footer>
+  </main>
+</body>
+</html>
