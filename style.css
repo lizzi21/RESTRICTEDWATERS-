@@ -408,3 +408,80 @@ input[type="range"]:focus-visible {outline:2px solid rgba(255,255,255,.9);outlin
   input[type="range"] {height:20px;min-height:20px;}
   .start-button,.stop-button {min-height:48px;}
 }
+
+
+
+
+
+
+@media (min-width:1101px) and (max-height:760px) {
+  :root { --gutter:12px; --space:10px; }
+  .app { grid-template-rows:48px minmax(0,1fr) 76px; }
+  .workstation > .panel:not(.field) { padding:12px 15px; gap:6px; }
+  .channel-heading {padding-bottom:6px;}
+  .toggle-line {padding-bottom:5px;}
+  .control {gap:3px;}
+  input[type=range] {min-height:18px;}
+  .field-top {top:12px;}
+  .field-bottom {bottom:12px;}
+}
+
+@media (max-width:1100px) {
+  .app {height:auto; min-height:100dvh; grid-template-rows:auto auto auto;}
+  .workstation {grid-template-columns:repeat(2,minmax(0,1fr));}
+  .field {grid-column:1 / -1; grid-row:1; min-height:clamp(330px,47vw,530px);}
+  .workstation > .panel:not(.field) {grid-template-rows:none; gap:16px;}
+  .transport {grid-template-columns:repeat(4,minmax(0,1fr));}
+  .start-button {grid-column:span 2;}
+  .stop-button {grid-column:span 2; min-height:62px;}
+  .output-label {justify-self:end;}
+}
+
+@media (max-width:650px) {
+  :root {--gutter:12px;--space:12px;}
+  .top-bar {min-height:64px;}
+  h1 {font-size:clamp(18px,5.8vw,27px);letter-spacing:.09em;}
+  .workstation {grid-template-columns:minmax(0,1fr);}
+  .field {grid-column:1;grid-row:1;min-height:340px;}
+  .workstation > .panel:not(.field) {padding:18px;gap:17px;}
+  .channel-number {font-size:26px;}
+  .control label {font-size:11px;}
+  .field-top,.field-bottom {font-size:9px;gap:7px;}
+  .field-bottom span:last-child {max-width:48%;text-align:right;}
+  .sonar-rings {width:min(70%,260px);}
+  .transport {grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;}
+  .start-button {grid-column:1 / -1;}
+  .stop-button {grid-column:1 / -1;min-height:54px;}
+  .transport-control {grid-column:span 1;}
+  .output-label {grid-column:1 / -1;justify-self:start;}
+}
+@media (prefers-reduced-motion:reduce) { .signal-burst {animation-duration:.01ms;} }
+
+
+@media (min-width:1101px) {
+  html, body {height:100%; overflow:hidden;}
+  .workstation > .panel {min-height:0;}
+  .transport {min-height:0;}
+}
+@media (max-width:1100px) {
+  html, body {overflow-x:hidden; overflow-y:auto;}
+  .workstation > .panel:not(.field) {overflow:visible;}
+}
+
+
+
+
+
+
+
+
+@media (max-width:1100px) {
+  .start-button,.stop-button {min-height:62px;}
+}
+@media (max-width:650px) {
+  .start-button,.stop-button {min-height:54px;}
+}
+@media (min-width:1101px) and (max-height:760px) {
+  input[type="range"] {height:20px;min-height:20px;}
+  .start-button,.stop-button {min-height:48px;}
+}
